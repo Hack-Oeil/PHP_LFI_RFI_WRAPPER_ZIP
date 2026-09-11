@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="fr">
+    <meta charset="UTF-8">
+    <!--Page Title-->
+    <title>Hack-Oeil - Les CTFs de Cyrhades</title>
+    <!--Meta Keywords and Description-->
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" title="Favicon" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Vérifie si la fenêtre est dans une iframe
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', (event) => {
+                        const a = event.target.closest('a[href^="http"]');
+                        if (a) {
+                            event.preventDefault();
+                            window.parent.postMessage({
+                                type: "open-external",
+                                url: a.href
+                            }, "*");
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!--Main Content Area-->
+        <main id="content">
+            <!--Ctf-->
+            <section class="ctf scrollto">
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>Challenge #35</h3>
+                            <h2 class="section-title">LFI/RFI et gestionnaire de Flux ZIP + FTP</h2>
+                            <p class="section-subtitle">
+                               Récupérez le FLAG de validation qui se trouve dans le fichier ./flag.txt en exploitant 
+une faille LFI/RFI et le gestionnaire de flux FTP et ZIP.
+<br /><br />
+Dans ce challenge l'objectif est de réussir à soumettre une backdoor en PHP en passant par le formulaire "Nous rejoindre".
+<br /><br />
+A partir de la faille LFI récupérez les informations d'authentification au serveur FTP (mais où sont stockées ces informations d'après vous ?) et une fois trouvé, utilisez les avec le gestionnaire de flux FTP et ZIP en exploitant votre backdoor.
+
+                            </p>
+                            <h4>Aperçu:</h4>
+                            <img class="capture" src="./assets/images/capture.jpg" alt="aperçu">
+                            <br /><br />
+                            <p class="section-subtitle">
+                                Pour cela vous devez avoir les connaissances suivantes :
+                            </p>
+                            <ul id="prerequisites" class="col-1">
+                                <li>Injection SQL</li>
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>Apprentissage</h3>
+                            <h2 class="section-title">Documentations et Vidéos</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://www.php.net/manual/fr/wrappers.php">
+                                    <img src="./assets/images/link.png" />
+                                    Liste des protocoles et des gestionnaires PHP
+                                </a>
+                                <br />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row clearfix">
+                    <div class="col-39">
+                        <div class="section-heading">
+                            <h3>Aide</h3>
+                            <h2 class="section-title">Conseils et indices</h2>
+                            <p class="section-subtitle">
+                                <a target="_blank"
+                                    href="https://discord.com/channels/1175764392307077120/1175764601716092948">Fil sur
+                                    le Discord</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--End of Ctf-->
+        </main>
+        <!--End Main Content Area-->
+
+        <a id="scrollUp" href="#wrapper" style="position: fixed; z-index: 1000;" title="Remonter en tête de site"></a>
+    </div>
+</body>
+
+</html>
