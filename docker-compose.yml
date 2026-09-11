@@ -9,8 +9,6 @@ services:
     ports:
       - ${PORT}:80
   cloud:
-    labels:
-      ho.ctf.cyrhades: cloud
     image: stilliard/pure-ftpd
     ports:
       - "21:21"
